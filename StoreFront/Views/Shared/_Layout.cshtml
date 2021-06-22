@@ -1,49 +1,131 @@
 ﻿<!DOCTYPE html>
-<html>
+@{
+    ViewBag.Title = "Storefront Application"; //do i need to come back and rename?
+}
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>@ViewBag.Title</title>
+    <!--
+    Next Level CSS Template
+    https://templatemo.com/tm-532-next-level
+    -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" />
+    <link rel="stylesheet" href="~/Content/css/all.min.css" />
+    <link rel="stylesheet" href="~/Content/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/css/templatemo-style.css" />
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", null, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-
-                    @if (Request.IsAuthenticated && User.IsInRole("Admin")) {
-                        <li>@Html.ActionLink("RolesAdmin", "Index", "RolesAdmin")</li>
-                        <li>@Html.ActionLink("UsersAdmin", "Index", "UsersAdmin")</li>
-                    }
-                </ul>
-                @Html.Partial("_LoginPartial")
+    <div class="row tm-brand-row">
+        <div class="col-lg-4 col-10">
+            <div class="tm-brand-container">
+                <div class="tm-brand-texts">
+                    <h1 class="text-uppercase tm-brand-name">Next Level</h1>
+                </div>
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+    <div class="col-lg-8 col-2 tm-nav-col">
+        <div class="tm-nav">
+            <nav class="navbar navbar-expand-lg navbar-light tm-navbar">
+                <button class="navbar-toggler"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#navbarNav"
+                        aria-controls="navbarNav"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!--TODO the highlight current page isn't working properly-->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto mr-0">
+                        <li class="nav-item">
+                            @*<div class="tm-nav-link-highlight"></div>*@
+                            <a class="nav-link" href="@Url.Action("Index", "Home")">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <div class="tm-nav-link-highlight"></div>
+                            <a class="nav-link" href="@Url.Action("About", "Home")">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <div class="tm-nav-link-highlight"></div>
+                            <a class="nav-link" href="@Url.Action("Gallery", "Home")">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            @*<div class="tm-nav-link-highlight"></div>*@
+                            <a class="nav-link" href="@Url.Action("Contact", "Home")">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        @RenderBody() <!--Don't want to put this at the top-->
+        <!-- Page footer -->
+        <footer class="row tm-page-footer">
+            <p class="col-12 tm-copyright-text mb-0">
+                Copyright &copy; @DateTime.Now.Year
+                <a href="https://fb.com/templatemo" rel="nofollow" class="tm-copyright-link">Designed by Template Mo</a>
+            </p>
         </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    @RenderSection("scripts", false)
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/parallax.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/imagesloaded.pkgd.min.js"></script>
+    <script src="~/Scripts/isotope.pkgd.min.js"></script>
+    <script src="~/Scripts/jquery-3.3.1.intellisense.js"></script>
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    @*<a href="~/Scripts/jquery-3.3.1.min.map">~/Scripts/jquery-3.3.1.min.map</a>*@
+    <script src="~/Scripts/jquery-3.3.1.slim.js"></script>
+    <script src="~/Scripts/jquery-3.3.1.slim.min.js"></script>
+    @*<a href="~/Scripts/jquery-3.3.1.slim.min.map">~/Scripts/jquery-3.3.1.slim.min.map</a>*@
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <script src="~/Scripts/respond.js"></script>
+    <script src="~/Scripts/respond.min.js"></script>
+    <script src="https://kit.fontawesome.com/4263a2b62a.js" crossorigin="anonymous"></script>
+
+    <!-- Custom Script to highlight the selected navigation -->
+    <script>
+        $(function () {
+            //  Use the DOM (Document Object Model) to locate the current selection for applying the class to highlight navigation (div#container nav ul li)
+            //  A lot of times this is actually on the <a>, in that case follow the notes below to add that code
+            //Below, we're trying to grab which of the pages/links the user selected
+            $('div#navbarNav ul li div a').each(
+                // .each() - Look at each link in the nav and see if the link matches the page we are currently on- if so add the selected class
+                //  ****The "this" is an object reference to the particular nav <a> in our loop (each)****
+                //  Each time through the loop the "this" changes to the next element (<a>)
+
+                function () { //this code is going to run 3 times (we have 3 links) and will say 'if the thing I'm looking at matches (finding the ul li then a tag and href), if it also matches the URL then we apply the Selected class to highlight the page we're on.
+                    if ($(this).find('a').attr('href') == window.location.pathname) {//the location.pathname is looking for the URL
+                        $(this).addClass("nav-item active");
+                        //  The class of selected was defined in the stylesheet so we did not have to create it.  If you wanted this functionality AND the CSS does not provide it, you will need to create the class AND write the code yourself.
+
+                    }
+                }
+            )
+        });
+    </script>
 </body>
 </html>
