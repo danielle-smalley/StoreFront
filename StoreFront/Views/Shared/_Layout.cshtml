@@ -13,10 +13,10 @@
     https://templatemo.com/tm-532-next-level
     -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" />
-    <link rel="stylesheet" href="~/Content/css/all.min.css" />
     <link rel="stylesheet" href="~/Content/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/Content/css/templatemo-style.css" />
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    @*<link rel="stylesheet" href="~/Content/css/bootstrap.min.css.map"/>*@
+
 
     @Scripts.Render("~/bundles/modernizr")
 
@@ -26,7 +26,7 @@
         <div class="col-lg-4 col-10">
             <div class="tm-brand-container">
                 <div class="tm-brand-texts">
-                    <h1 class="text-uppercase tm-brand-name">Next Level</h1>
+                    <h1 class="text-uppercase tm-brand-name">Business Name</h1>
                 </div>
             </div>
         </div>
@@ -83,18 +83,16 @@
     @RenderSection("scripts", false)
 
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
-    <script src="~/Scripts/parallax.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <script src="~/Scripts/bootstrap.js"></script>
+    @*<script src="~/Scripts/parallax.min.js"></script>*@
+    @*<script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>*@
     <script src="~/Scripts/imagesloaded.pkgd.min.js"></script>
     <script src="~/Scripts/isotope.pkgd.min.js"></script>
-    <script src="~/Scripts/jquery-3.3.1.intellisense.js"></script>
     <script src="~/Scripts/jquery-3.3.1.js"></script>
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
-    @*<a href="~/Scripts/jquery-3.3.1.min.map">~/Scripts/jquery-3.3.1.min.map</a>*@
+    @*<script src="~/Scripts/jquery-3.3.1.intellisense.js"></script>*@
     <script src="~/Scripts/jquery-3.3.1.slim.js"></script>
     <script src="~/Scripts/jquery-3.3.1.slim.min.js"></script>
-    @*<a href="~/Scripts/jquery-3.3.1.slim.min.map">~/Scripts/jquery-3.3.1.slim.min.map</a>*@
     <script src="~/Scripts/jquery.min.js"></script>
     <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
     <script src="~/Scripts/jquery.validate.js"></script>
@@ -108,20 +106,11 @@
 
     <!-- Custom Script to highlight the selected navigation -->
     <script>
-        $(function () {
-            //  Use the DOM (Document Object Model) to locate the current selection for applying the class to highlight navigation (div#container nav ul li)
-            //  A lot of times this is actually on the <a>, in that case follow the notes below to add that code
-            //Below, we're trying to grab which of the pages/links the user selected
-            $('div#navbarNav ul li div a').each(
-                // .each() - Look at each link in the nav and see if the link matches the page we are currently on- if so add the selected class
-                //  ****The "this" is an object reference to the particular nav <a> in our loop (each)****
-                //  Each time through the loop the "this" changes to the next element (<a>)
-
-                function () { //this code is going to run 3 times (we have 3 links) and will say 'if the thing I'm looking at matches (finding the ul li then a tag and href), if it also matches the URL then we apply the Selected class to highlight the page we're on.
-                    if ($(this).find('a').attr('href') == window.location.pathname) {//the location.pathname is looking for the URL
-                        $(this).addClass("nav-item active");
-                        //  The class of selected was defined in the stylesheet so we did not have to create it.  If you wanted this functionality AND the CSS does not provide it, you will need to create the class AND write the code yourself.
-
+        $(function (){
+            $('div#navbarNav ul.navbar-nav li.nav-item').each(
+                function () { 
+                    if ($(this).find('a').attr('href') == window.location.pathname) {
+                        $(this).addClass("active"); 
                     }
                 }
             )

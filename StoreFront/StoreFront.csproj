@@ -262,6 +262,7 @@
     <Content Include="_Archive\webfonts\fa-brands-400.svg" />
     <Content Include="_Archive\webfonts\fa-regular-400.svg" />
     <Content Include="_Archive\webfonts\fa-solid-900.svg" />
+    <Content Include="Content\css\bootstrap.min.css.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
