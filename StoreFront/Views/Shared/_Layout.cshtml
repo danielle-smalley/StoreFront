@@ -1,13 +1,10 @@
 ﻿<!DOCTYPE html>
-@{
-    ViewBag.Title = "Storefront Application"; //do i need to come back and rename?
-}
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>@ViewBag.Title</title>
+    <title>MeowMart</title>
     <!--
     Next Level CSS Template
     https://templatemo.com/tm-532-next-level
@@ -15,10 +12,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" />
     <link rel="stylesheet" href="~/Content/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/Content/css/templatemo-style.css" />
-    @*<link rel="stylesheet" href="~/Content/css/bootstrap.min.css.map"/>*@
 
 
-    @Scripts.Render("~/bundles/modernizr")
+
+    @*@Scripts.Render("~/bundles/modernizr")*@
 
 </head>
 <body>
@@ -26,7 +23,7 @@
         <div class="col-lg-4 col-10">
             <div class="tm-brand-container">
                 <div class="tm-brand-texts">
-                    <h1 class="text-uppercase tm-brand-name">Business Name</h1>
+                    <h1 class="text-uppercase tm-brand-name">MeowMart</h1>
                 </div>
             </div>
         </div>
@@ -79,38 +76,36 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
+    @*@Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")*@
     @RenderSection("scripts", false)
 
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
-    @*<script src="~/Scripts/parallax.min.js"></script>*@
-    @*<script src="~/Scripts/bootstrap.min.js"></script>
-    <script src="~/Scripts/bootstrap.js"></script>*@
+    @*<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>*@
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/jquery-3.3.1.slim.min.js"></script>
+    @*<script src="~/Scripts/jquery-3.3.1.intellisense.js"></script>*@
+    <script src="~/Scripts/parallax.min.js"></script>
+    <script src="~/Scripts/respond.min.js"></script>
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
     <script src="~/Scripts/imagesloaded.pkgd.min.js"></script>
     <script src="~/Scripts/isotope.pkgd.min.js"></script>
-    <script src="~/Scripts/jquery-3.3.1.js"></script>
-    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
-    @*<script src="~/Scripts/jquery-3.3.1.intellisense.js"></script>*@
-    <script src="~/Scripts/jquery-3.3.1.slim.js"></script>
-    <script src="~/Scripts/jquery-3.3.1.slim.min.js"></script>
-    <script src="~/Scripts/jquery.min.js"></script>
-    <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
-    <script src="~/Scripts/jquery.validate.js"></script>
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-    <script src="~/Scripts/modernizr-2.8.3.js"></script>
-    <script src="~/Scripts/respond.js"></script>
-    <script src="~/Scripts/respond.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+
+
+
     <script src="https://kit.fontawesome.com/4263a2b62a.js" crossorigin="anonymous"></script>
 
     <!-- Custom Script to highlight the selected navigation -->
     <script>
-        $(function (){
+        $(function () {
             $('div#navbarNav ul.navbar-nav li.nav-item').each(
-                function () { 
+                function () {
                     if ($(this).find('a').attr('href') == window.location.pathname) {
-                        $(this).addClass("active"); 
+                        $(this).addClass("active");
                     }
                 }
             )
