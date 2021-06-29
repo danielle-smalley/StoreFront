@@ -41,7 +41,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <!--TODO the highlight current page isn't working properly-->
-                <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-collapse collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto mr-0">
                         <li class="nav-item">
                             @*<div class="tm-nav-link-highlight"></div>*@
@@ -59,7 +59,13 @@
                             @*<div class="tm-nav-link-highlight"></div>*@
                             <a class="nav-link" href="@Url.Action("Contact", "Home")">Contact</a>
                         </li>
+                        @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <li>@Html.ActionLink("RolesAdmin", "Index", "RolesAdmin")</li>
+                            <li>@Html.ActionLink("UsersAdmin", "Index", "UsersAdmin")</li>
+                        }
                     </ul>
+                    @Html.Partial("_LoginPartial")
                 </div>
             </nav>
         </div>
